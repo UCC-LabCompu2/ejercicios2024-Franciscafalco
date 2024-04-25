@@ -23,51 +23,48 @@
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
 <form>
     <p>
-        Nombre: <input type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" size="60" maxlength="40">
+        <label for="nombre">Nombre: </label><input type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" size="60" maxlength="40">
     </p>
     <p>
-        Apellido:<input type="text" name="apellido" id="apellido" placeholder="Ingrese su Apellido"size="60" maxlength="40">
+        <label for="apellido">Apellido: </label><input type="text" name="apellido" id="apellido" placeholder="Ingrese su Apellido"size="60" maxlength="40">
     </p>
     <p>
         Sexo:
-        <input type="radio" name="genero" id="masculino" value="masculino">Masculino
-        <input type="radio" name="genero" id="femenino" value="femenino">Femenino
-        <input type="radio" name="genero" id="noRev" value="noRev">Prefiero no revelarlo
+        <label for="masculino">Masculino </label><input type="radio" name="genero" id="masculino" value="masculino">
+        <label for="femenino">Femenino</label><input type="radio" name="genero" id="femenino" value="femenino">
+        <label for="noRev">Prefiero no revelarlo</label><input type="radio" name="genero" id="noRev" value="noRev">
     </p>
     <p>
-        Edad: <input type="number" name="edad" id="edad" min="0" max="100" maxlength="3"size="3" maxlength="4">
+        <label for="edad">Edad: </label><input type="number" name="edad" id="edad" min="0" max="100" maxlength="3"size="3" maxlength="4">
     </p>
     <p>
-        Email: <input type="email" name="email" id="email" placeholder="Ingrese su email"size="60" maxlength="40">
+        <label for="email">Email: </label><input type="email" name="email" id="email" placeholder="Ingrese su email"size="60" maxlength="40">
     </p>
     <p>
-        Usuario: <input type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario"size="60" maxlength="40">
+        <label for="usuario">Usuario: </label><input type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario"size="60" maxlength="40">
     </p>
     <p>
-        Password: <input type="password" name="password" id="password" placeholder="Ingrese su Password"size="60" maxlength="40">
+        <label for="password">Password: </label><input type="password" name="password" id="password" placeholder="Ingrese su Password"size="60" maxlength="40">
     </p>
     <p>
-        Confirmar Password: <input type="password" name="confirmarPassword" id="confirmarPassword" placeholder="Ingrese su Password" size="60" maxlength="40">
+        <label for="confirmarPassword">Confirmar Password: </label><input type="password" name="confirmarPassword" id="confirmarPassword" placeholder="Ingrese su Password" size="60" maxlength="40">
     </p>
     <p>
-        Tipo de servicio:
-        <select name="tipoServicio" id="tipoServicio">
-            <option value="free">Free</option>
-            <option value="standard">Standard</option>
-            <option value="premiun">Premium</option>
-        </select>
+        <label for="tipoServicio">Tipo de servicio: </label><select name="tipoServicio" id="tipoServicio">
+        <option value="free">Free</option>
+        <option value="standard">Standard</option>
+        <option value="premiun">Premium</option>
+    </select>
     </p>
     <p>
         Tema:
-        <input type="checkbox" name="politica" id="politica">Política
-        <input type="checkbox" name="negocios" id="negocios">Negocios
-        <input type="checkbox" name="tecnologia" id="tecnologia">Tecnología
-        <input type="checkbox" name="salud" id="salud">Salud
+        <label for="politica">Política</label><input type="checkbox" name="politica" id="politica">
+        <label for="negocios">Negocios</label><input type="checkbox" name="negocios" id="negocios">
+        <label for="tecnologia">Tecnología</label><input type="checkbox" name="tecnologia" id="tecnologia">
+        <label for="salud">Salud</label><input type="checkbox" name="salud" id="salud">
     </p>
     <p>
-        <textarea
-                name="comentario" id="comentario" rows="8"> Agregue un comentario:
-        </textarea>
+        <label for="comentario">Agregue un comentario:</label><textarea name="comentario" id="comentario" rows="8"></textarea>
     </p>
     <p>
         <button type="button">
