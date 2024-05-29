@@ -63,3 +63,11 @@ function convertirGR(id){
         document.getElementById("grados").value=grad;
         }
 }
+
+let mostrar_ocultar = (valor) =>{
+    if(valor==="val_mostrar"){
+        document.getElementsByName("unDiv")[0].style.display='block';
+    } else if(valor==="val_ocultar"){
+        document.getElementsByName("unDiv")[0].style.display='none';
+    }
+}
