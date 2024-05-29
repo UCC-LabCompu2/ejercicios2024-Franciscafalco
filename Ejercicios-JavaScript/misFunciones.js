@@ -71,3 +71,9 @@ let mostrar_ocultar = (valor) =>{
         document.getElementsByName("unDiv")[0].style.display='none';
     }
 }
+
+let suma = () =>{
+    const s1 = Number (document.getElementById("nums1").value);
+    const s2 = Number (document.getElementById("nums2").value);
+    document.getElementById("totalS").value=s1+s2;
+}
