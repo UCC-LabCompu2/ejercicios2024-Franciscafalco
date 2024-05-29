@@ -4,35 +4,44 @@
  * @param {string} nombre - El nombre de los inputs de metros, yardas, pies o pulgadas
  * @param {number} valor - El valor de los inputs de metros, yardas, pies o pulgada
  */
-function convertirUnidades(nombre, valor){
+let convertirUnidades=(nombre, valor)=>{
     //TODO: Debería admitir números con coma.
+    let metro,pulgada,pie,yarda;
     if (isNaN(valor)){
-        document.getElementById("metro").value="";
-        document.getElementById("pie").value="";
-        document.getElementById("pulgada").value="";
-        document.getElementById("yarda").value="";
+        metro="";
+        pie="";
+        pulgada="";
+        yarda="";
         alert("El valor ingresado no es correcto")
     }
     else if(nombre==="metro"){
-        document.getElementById("pulgada").value = valor * 39.3701;
-        document.getElementById("pie").value = valor * 3.28084;
-        document.getElementById("yarda").value = valor * 1.09361;
+        metro=valor;
+        pulgada = valor * 39.3701;
+        pie = valor * 3.28084;
+        yarda= valor * 1.09361;
     }
     else if (nombre==="pulgada"){
-        document.getElementById("metro").value = valor * 0.0254 ;
-        document.getElementById("pie").value = valor * 0.833333;
-        document.getElementById("yarda").value = valor * 0.02777778;
+        pulgada=valor;
+        metro = valor * 0.0254 ;
+        pie= valor * 0.833333;
+        yarda= valor * 0.02777778;
     }
     else if (nombre==="pie"){
-        document.getElementById("metro").value = valor * 0.3048;
-        document.getElementById("pulgada").value = valor * 12;
-        document.getElementById("yarda").value = valor * 0.333333;
+        pie=valor;
+        metro = valor * 0.3048;
+        pulgada = valor * 12;
+        yarda = valor * 0.333333;
     }
     else if (nombre==="yarda"){
-        document.getElementById("metro").value = valor * 0.9144;
-        document.getElementById("pulgada").value = valor * 36;
-        document.getElementById("pie").value = valor * 3;
+        yarda=valor;
+        metro = valor * 0.9144;
+        pulgada = valor * 36;
+        pie = valor * 3;
     }
+    document.getElementById("metro").value=metro;
+    document.getElementById("pie").value=pie;
+    document.getElementById("pulgada").value=pulgada;
+    document.getElementById("yarda").value=yarda;
 }
 /**
  * Permite convertir grados a radianes y viceversa.
