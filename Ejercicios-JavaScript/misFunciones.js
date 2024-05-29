@@ -7,6 +7,11 @@
 let convertirUnidades=(nombre, valor)=>{
     //TODO: Debería admitir números con coma.
     let metro,pulgada,pie,yarda;
+
+    if(valor.includes(",")){
+        valor=valor.replace(",",".");
+    }
+
     if (isNaN(valor)){
         metro="";
         pie="";
@@ -38,10 +43,10 @@ let convertirUnidades=(nombre, valor)=>{
         pulgada = valor * 36;
         pie = valor * 3;
     }
-    document.getElementById("metro").value=metro;
-    document.getElementById("pie").value=pie;
-    document.getElementById("pulgada").value=pulgada;
-    document.getElementById("yarda").value=yarda;
+    document.getElementById("metro").value=Math.round(metro*100)/100;
+    document.getElementById("pie").value=Math.round(pie*100)/100;
+    document.getElementById("pulgada").value=pulgada.toFixed(2);
+    document.getElementById("yarda").value=yarda.toFixed(2);
 }
 /**
  * Permite convertir grados a radianes y viceversa.
