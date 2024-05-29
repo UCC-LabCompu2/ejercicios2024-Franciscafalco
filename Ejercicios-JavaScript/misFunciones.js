@@ -64,6 +64,11 @@ function convertirGR(id){
         }
 }
 
+/**
+ * Permite mostrar y ocultar un div en base a la selección de un radio button
+ * @param mostrar_ocultar
+ * @param {string} valor - contiene: val_mostrar, val_ocultar
+ */
 let mostrar_ocultar = (valor) =>{
     if(valor==="val_mostrar"){
         document.getElementsByName("unDiv")[0].style.display='block';
@@ -71,9 +76,42 @@ let mostrar_ocultar = (valor) =>{
         document.getElementsByName("unDiv")[0].style.display='none';
     }
 }
-
+/**
+ * Permite sumar 2 numeros ingresados por el usuario
+ * @param suma
+ */
 let suma = () =>{
     const s1 = Number (document.getElementById("nums1").value);
     const s2 = Number (document.getElementById("nums2").value);
     document.getElementById("totalS").value=s1+s2;
+}
+
+/**
+ * Permite restar 2 numeros ingresados por el usuario
+ * @param resta
+ */
+let resta = () =>{
+    const r1 = Number (document.getElementById("numr1").value);
+    const r2 = Number (document.getElementById("numr2").value);
+    document.getElementById("totalR").value=r1-r2;
+}
+
+/**
+ * Permite dividir 2 numeros ingresados por el usuario
+ * @param divide
+ */
+let divide = () =>{
+    const d1 = Number (document.getElementById("numd1").value);
+    const d2 = Number (document.getElementById("numd2").value);
+    document.getElementById("totalD").value=d1/d2;
+}
+
+/**
+ * Permite multiplicar 2 numeros ingresados por el usuario
+ * @param resta
+ */
+let multiplica = () =>{
+    const m1 = Number (document.getElementById("numm1").value);
+    const m2 = Number (document.getElementById("numm2").value);
+    document.getElementById("totalM").value=m1*m2;
 }
