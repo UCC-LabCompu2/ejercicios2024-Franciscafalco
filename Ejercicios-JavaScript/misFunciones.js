@@ -229,4 +229,25 @@ function dibujarCuadriculado() {
         //i=i+paso;
         i+=paso;
     }
+
+    //EJE X
+    ctx.strokeStyle="#ff071b";
+    ctx.beginPath();
+    //Acá dibujo lineas
+    ctx.moveTo(0, alturaMax/2);
+    ctx.lineTo(anchoMax, alturaMax/2);
+    ctx.stroke();
+
+    ctx.closePath();
+
+    //EJE Y
+    ctx.strokeStyle="#ff071b";
+    ctx.beginPath();
+    //Acá dibujo lineas
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo(anchoMax/2, alturaMax);
+    ctx.stroke();
+
+    ctx.closePath();
+
 }
