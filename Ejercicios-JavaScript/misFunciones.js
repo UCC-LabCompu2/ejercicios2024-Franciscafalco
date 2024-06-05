@@ -155,3 +155,37 @@ function cargarLS(){
     const unid=localStorage.getItem("unidadLS");
     document.getElementById("dist").value = `${dist} ${unid}`;
 }
+
+function dibujarCirculoCuadrado() {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    const tamnio=200;
+    const alturamax=canvas.height;
+    const anchomax=canvas.width;
+    const margen=10;
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(margen, alturamax-tamnio-margen, tamnio, tamnio);
+    ctx.fillStyle="blue";
+    ctx.arc(anchomax/2,alturamax/2,tamnio/2,0,2*Math.PI );
+    ctx.stroke();
+    ctx.fill();
+}
+
+function cargarEventListener(){
+    document.getElementById("myCanvas").addEventListener("mousemove",dibujar);
+}
+
+var bandera;
+function dibujar(event){
+    const canvas=document.getElementById("myCanvas");
+    const ctx=canvas.getContext("2d");
+
+    let posX=event.clientX;
+    let posY=event.clientY;
+    console.log(posX,posY);
+
+    canvas.onmousedown = function () {bandera=true};
+    canvas.onmouseup=function (){bandera=false};
+    if(bandera){
+        ctx.fillRect(posX,posY,5,5);    }
+}
