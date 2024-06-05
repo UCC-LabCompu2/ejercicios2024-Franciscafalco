@@ -189,3 +189,8 @@ function dibujar(event){
     if(bandera){
         ctx.fillRect(posX,posY,5,5);    }
 }
+
+function BorrarCanvas(){
+    const canvas=document.getElementById("myCanvas");
+    canvas.width = canvas.width;
+}
