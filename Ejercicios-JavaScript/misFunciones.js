@@ -194,3 +194,39 @@ function BorrarCanvas(){
     const canvas=document.getElementById("myCanvas");
     canvas.width = canvas.width;
 }
+
+function dibujarCuadriculado() {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    const paso = 20;
+    const anchoMax = canvas.width;
+    const alturaMax = canvas.height;
+
+    ctx.strokeStyle="#9f9fd0";
+
+    //LINEAS HORIZONTALES
+    for (let i=paso;i<alturaMax;) {
+        ctx.beginPath();
+        //Acá dibujo lineas
+        ctx.moveTo(0, i);
+        ctx.lineTo(anchoMax, i);
+        ctx.stroke();
+
+        ctx.closePath();
+        //i=i+paso;
+        i+=paso;
+    }
+
+    //LINEAS VERTICALES
+    for(let i=paso;i<anchoMax;) {
+        ctx.beginPath();
+        //Acá dibujo lineas
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, alturaMax);
+        ctx.stroke();
+
+        ctx.closePath();
+        //i=i+paso;
+        i+=paso;
+    }
+}
