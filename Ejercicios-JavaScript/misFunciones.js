@@ -141,57 +141,63 @@ function tomarValores() {
     document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
 
-function guardarLS(){
+function guardarLS() {
     const distancia = document.getElementById("distancia").value;
     const unidad = document.getElementById("unidades").value;
 
-    localStorage.setItem("distanciaLS",distancia);
-    localStorage.setItem("unidadLS",unidad);
+    localStorage.setItem("distanciaLS", distancia);
+    localStorage.setItem("unidadLS", unidad);
     window.open("2_Web.html");
 }
 
-function cargarLS(){
-    const dist=localStorage.getItem("distanciaLS");
-    const unid=localStorage.getItem("unidadLS");
+function cargarLS() {
+    const dist = localStorage.getItem("distanciaLS");
+    const unid = localStorage.getItem("unidadLS");
     document.getElementById("dist").value = `${dist} ${unid}`;
 }
 
 function dibujarCirculoCuadrado() {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
-    const tamnio=200;
-    const alturamax=canvas.height;
-    const anchomax=canvas.width;
-    const margen=10;
+    const tamnio = 200;
+    const alturamax = canvas.height;
+    const anchomax = canvas.width;
+    const margen = 10;
     ctx.fillStyle = "yellow";
-    ctx.fillRect(margen, alturamax-tamnio-margen, tamnio, tamnio);
-    ctx.fillStyle="blue";
-    ctx.arc(anchomax/2,alturamax/2,tamnio/2,0,2*Math.PI );
+    ctx.fillRect(margen, alturamax - tamnio - margen, tamnio, tamnio);
+    ctx.fillStyle = "blue";
+    ctx.arc(anchomax / 2, alturamax / 2, tamnio / 2, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.fill();
 }
 
-function cargarEventListener(){
-    document.getElementById("myCanvas").addEventListener("mousemove",dibujar);
+function cargarEventListener() {
+    document.getElementById("myCanvas").addEventListener("mousemove", dibujar);
 }
 
 var bandera;
-function dibujar(event){
-    const canvas=document.getElementById("myCanvas");
-    const ctx=canvas.getContext("2d");
 
-    let posX=event.clientX;
-    let posY=event.clientY;
-    console.log(posX,posY);
+function dibujar(event) {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
 
-    canvas.onmousedown = function () {bandera=true};
-    canvas.onmouseup=function (){bandera=false};
-    if(bandera){
-        ctx.fillRect(posX,posY,5,5);    }
+    let posX = event.clientX;
+    let posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function () {
+        bandera = true
+    };
+    canvas.onmouseup = function () {
+        bandera = false
+    };
+    if (bandera) {
+        ctx.fillRect(posX, posY, 5, 5);
+    }
 }
 
-function BorrarCanvas(){
-    const canvas=document.getElementById("myCanvas");
+function BorrarCanvas() {
+    const canvas = document.getElementById("myCanvas");
     canvas.width = canvas.width;
 }
 
@@ -202,10 +208,10 @@ function dibujarCuadriculado() {
     const anchoMax = canvas.width;
     const alturaMax = canvas.height;
 
-    ctx.strokeStyle="#9f9fd0";
+    ctx.strokeStyle = "#9f9fd0";
 
     //LINEAS HORIZONTALES
-    for (let i=paso;i<alturaMax;) {
+    for (let i = paso; i < alturaMax;) {
         ctx.beginPath();
         //Acá dibujo lineas
         ctx.moveTo(0, i);
@@ -214,11 +220,11 @@ function dibujarCuadriculado() {
 
         ctx.closePath();
         //i=i+paso;
-        i+=paso;
+        i += paso;
     }
 
     //LINEAS VERTICALES
-    for(let i=paso;i<anchoMax;) {
+    for (let i = paso; i < anchoMax;) {
         ctx.beginPath();
         //Acá dibujo lineas
         ctx.moveTo(i, 0);
@@ -227,27 +233,56 @@ function dibujarCuadriculado() {
 
         ctx.closePath();
         //i=i+paso;
-        i+=paso;
+        i += paso;
     }
 
     //EJE X
-    ctx.strokeStyle="#ff071b";
+    ctx.strokeStyle = "#ff071b";
     ctx.beginPath();
     //Acá dibujo lineas
-    ctx.moveTo(0, alturaMax/2);
-    ctx.lineTo(anchoMax, alturaMax/2);
+    ctx.moveTo(0, alturaMax / 2);
+    ctx.lineTo(anchoMax, alturaMax / 2);
     ctx.stroke();
 
     ctx.closePath();
 
     //EJE Y
-    ctx.strokeStyle="#ff071b";
+    ctx.strokeStyle = "#ff071b";
     ctx.beginPath();
     //Acá dibujo lineas
-    ctx.moveTo(anchoMax/2, 0);
-    ctx.lineTo(anchoMax/2, alturaMax);
+    ctx.moveTo(anchoMax / 2, 0);
+    ctx.lineTo(anchoMax / 2, alturaMax);
     ctx.stroke();
 
     ctx.closePath();
+}
 
+function dibujarImagen(posX, posY) {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    console.log(posX, posY);
+    const img = new Image();
+    img.src = "images/auto.png";
+    img.onload = function () {
+        canvas.width = canvas.width;
+        ctx.drawImage(img, posX, posY);
+    }
+    if (posX<0 || posY<0 || posX>canvas.width || posY>canvas.canvas.height){
+        mostrarDialog();
+    }else{
+        img.onload=function (){
+            ctx.drawImage(img,posX,posY);
+        }
+    }
+}
+
+let mostrarDialog=()=>{
+    const dialog=document.getElementById("mensajeError");
+    dialog.showModal();
+}
+
+let cierreDialog=()=>{
+    const dialog=document.getElementById("mensajeError");
+    dialog.close();
 }
